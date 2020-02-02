@@ -1,0 +1,28 @@
+/*******************************************/
+
+  PC NAVTEX
+ 
+/*******************************************/
+
+
+The program PC NAVTEX is based on Qt.
+
+Compiling:
+
+cd pc-navtex
+qmake-qt5
+make
+
+
+You can place the udev rule in /etc/udev/rules.d. 
+With this udev rule, the serial port of your PC NAVTEX USB 
+device will be seen as /dev/navtex, independ of you have further 
+serial devices conected.
+
+If not working, check vendor and produckt Id. The delivered serial-to-usb 
+adapter may change over the years. To see your vendeor / product Id, 
+plug the device and check the output of dmesg.
+
+The program works without the udev rule too. The cavit is the device 
+name of your PC NAVTEX USB may change if you plug any other serial device, 
+like GPS.
