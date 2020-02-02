@@ -1,0 +1,8 @@
+# Zugriffsrechte für FiFi-SDR vergeben:
+# Gruppenzugehörigkeit auf 'users' ändern
+
+SUBSYSTEM!="usb", ACTION!="add", GOTO="fifisdr_usb_rules_end"
+
+ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", GROUP="users", SYMLINK+="navtex"
+
+LABEL="fifisdr_usb_rules_end"

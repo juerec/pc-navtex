@@ -1,0 +1,140 @@
+#!/bin/sh
+
+OUTDIR=../pc-navtex/resources/icon32x32
+#OUTDIR=tmp-32x32
+POSITION="0,3"
+
+TXT=A
+LETTER=A
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#008000 -fill \#008000 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#406040 -fill \#406040 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}p.png
+
+TXT=B
+LETTER=B
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#e5c938 -fill \#e5c938 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#726e54 -fill \#726e54 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}p.png
+
+
+TXT=C
+LETTER=C
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#183dd8 -fill \#183dd8 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#53629d -fill \#53629d \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}p.png
+
+
+TXT=D
+LETTER=D
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#f33d0f -fill \#f33d0f \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#7f5044 -fill \#7f5044 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}p.png
+
+
+TXT=E
+LETTER=E
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#26cfc3 -fill \#26cfc3 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      -gravity center \
+      -pointsize 28 \
+      -strokewidth 0 -stroke \#4e9691 -fill \#4e9691 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/T${LETTER}p.png
+
+
+magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#E0E0C0 \
+      -draw  "rectangle 1,1 30,30" \
+      button.png
+magick composite -gravity center -compose Over Z-32x32a.png button.png $OUTDIR/TZa.png
+
+magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke \#808080 -fill \#A0A090 \
+      -draw  "rectangle 1,1 30,30" \
+      button.png
+magick composite -gravity center -compose Over Z-32x32p.png button.png $OUTDIR/TZp.png
+
+rm button.png

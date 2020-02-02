@@ -1,0 +1,86 @@
+#!/bin/sh
+
+OUTDIR=../pc-navtex/resources/icon32x32
+#OUTDIR=tmp-32x32
+LETTERS="A B C D E F G H I J K L M N O P Q R S T U V W X Z"
+POSITION="0,2"
+
+for LETTER in ${LETTERS} ; do
+
+  TXT="$LETTER"
+  if [ "$TXT" = "Z" ] ; then
+    TXT=\*
+    POSITION="0,7"
+  fi
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#208020 \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      -gravity center \
+      -pointsize 20 \
+      -strokewidth 1 -stroke \#40FF40 -fill \#40FF40 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/N${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#408040 \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      -gravity center \
+      -pointsize 20 \
+      -strokewidth 1 -stroke \#60A060 -fill \#60A060 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/N${LETTER}p.png
+done
+
+POSITION="0,2"
+for LETTER in ${LETTERS} ; do
+
+  TXT="$LETTER"
+  if [ "$TXT" = "Z" ] ; then
+    TXT=\*
+    POSITION="0,7"
+  fi
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#A74A0C \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      -gravity center \
+      -pointsize 20 \
+      -strokewidth 1 -stroke \#FFAA80 -fill \#FFAA80 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/I${LETTER}a.png
+
+  magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#A06020 \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      -gravity center \
+      -pointsize 20 \
+      -strokewidth 1 -stroke \#C08060 -fill \#C08060 \
+      -draw  "text $POSITION $TXT" \
+      $OUTDIR/I${LETTER}p.png
+done
+
+
+magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#30C030 \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      button.png
+
+magick composite -gravity center -compose Over 490.png button.png $OUTDIR/Z490.png
+
+magick convert -size 32x32 xc:none \
+      -strokewidth 2 \
+      -stroke black -fill \#FA6F12 \
+      -draw  "roundrectangle 1,1 30,30, 3,3" \
+      button.png
+magick composite -gravity center -compose Over 518.png button.png $OUTDIR/Z518.png
+
+rm button.png
+
+mv $OUTDIR/Z490.png $OUTDIR/@N.png
+mv $OUTDIR/Z518.png $OUTDIR/@I.png
